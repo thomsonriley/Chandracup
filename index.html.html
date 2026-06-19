@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chandra Cup — Cabot Citrus Farms 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-deep:   #2B3A2E;
+    --green-dark:   #1C2B1F;
+    --green-mid:    #3D5440;
+    --green-light:  #4E6B52;
+    --cream:        #F2EBD9;
+    --cream-light:  #FAF6EE;
+    --gold:         #C4973A;
+    --gold-light:   #D9AE5A;
+    --gold-pale:    #EDD898;
+    --text-dark:    #1A2019;
+    --text-mid:     #4A5849;
+    --white:        #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream-light);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(28, 43, 31, 0.96);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    border-bottom: 1px solid rgba(196,151,58,0.25);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 300; letter-spacing: 0.18em;
+    color: var(--gold-pale); text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(242,235,217,0.7);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--green-dark);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(77,107,82,0.18) 0%, transparent 70%);
+  }
+  .hero-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 28px; position: relative;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; display: block; width: 48px; height: 1px; background: var(--gold);
+    opacity: 0.5;
+  }
+  .hero-crest {
+    position: relative; margin-bottom: 32px;
+  }
+  .crest-ring {
+    width: 160px; height: 160px; border-radius: 50%;
+    border: 1px solid rgba(196,151,58,0.4);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+    position: relative;
+  }
+  .crest-ring::before {
+    content: '';
+    position: absolute; inset: 8px; border-radius: 50%;
+    border: 1px solid rgba(196,151,58,0.2);
+  }
+  .crest-inner {
+    width: 90px; height: 90px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(196,151,58,0.3)) brightness(1.1);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 10vw, 96px);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    line-height: 1;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-pale);
+  }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 300; font-style: italic;
+    color: rgba(242,235,217,0.55);
+    margin-bottom: 48px; position: relative;
+    letter-spacing: 0.02em;
+  }
+  .hero-meta {
+    display: flex; gap: 48px; align-items: center;
+    position: relative;
+  }
+  .hero-meta-item { text-align: center; }
+  .hero-meta-label {
+    font-size: 9px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); opacity: 0.7;
+    display: block; margin-bottom: 6px;
+  }
+  .hero-meta-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 400; letter-spacing: 0.05em;
+    color: var(--cream);
+  }
+  .hero-divider {
+    width: 1px; height: 40px; background: rgba(196,151,58,0.25);
+  }
+  .scroll-cue {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .scroll-cue span {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(242,235,217,0.35);
+  }
+  .scroll-arrow {
+    width: 1px; height: 32px;
+    background: linear-gradient(to bottom, rgba(196,151,58,0.5), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 24px; }
+
+  .section-label {
+    font-size: 9px; font-weight: 600; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; max-width: 60px; height: 1px;
+    background: var(--gold); opacity: 0.4;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--green-deep);
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-body {
+    font-size: 15px; line-height: 1.75; color: var(--text-mid);
+    max-width: 560px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* ── ABOUT ── */
+  .about-section {
+    background: var(--green-dark);
+    padding: 100px 24px;
+  }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    max-width: 1000px; margin: 0 auto;
+  }
+  .about-section .section-label { color: var(--gold-light); }
+  .about-section .section-label::after { background: var(--gold-light); }
+  .about-section .section-title { color: var(--cream); }
+  .about-section .section-body { color: rgba(242,235,217,0.65); }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    border: 1px solid rgba(196,151,58,0.2);
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.03);
+    padding: 32px 24px; text-align: center;
+    border: 1px solid rgba(196,151,58,0.08);
+    transition: background 0.2s;
+  }
+  .stat-box:hover { background: rgba(196,151,58,0.07); }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 300; color: var(--gold-pale);
+    line-height: 1;
+  }
+  .stat-unit {
+    font-size: 14px; color: var(--gold); margin-left: 2px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .stat-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(242,235,217,0.4);
+    margin-top: 8px;
+  }
+
+  /* ── SCHEDULE ── */
+  .schedule-section { background: var(--cream-light); }
+  .schedule-grid { max-width: 900px; margin: 60px auto 0; }
+
+  .day-block {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 0; margin-bottom: 2px;
+  }
+  .day-date {
+    background: var(--green-deep);
+    padding: 32px 24px;
+    display: flex; flex-direction: column; justify-content: flex-start;
+    position: relative;
+  }
+  .day-date::after {
+    content: ''; position: absolute; top: 0; right: 0; bottom: 0;
+    width: 3px; background: var(--gold); opacity: 0.6;
+  }
+  .day-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300; color: var(--cream);
+  }
+  .day-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 300; color: var(--gold-pale);
+    line-height: 1; margin: 4px 0;
+  }
+  .day-month {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(242,235,217,0.4); font-weight: 500;
+  }
+  .day-events { background: var(--white); }
+  .event-row {
+    padding: 18px 32px;
+    border-bottom: 1px solid rgba(44,58,46,0.07);
+    display: grid; grid-template-columns: 100px 1fr auto;
+    align-items: center; gap: 20px;
+    transition: background 0.15s;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-row:hover { background: rgba(44,58,46,0.02); }
+  .event-time {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
+    color: var(--text-mid); font-variant-numeric: tabular-nums;
+  }
+  .event-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 400; color: var(--green-deep);
+  }
+  .event-name small {
+    display: block; font-size: 12px; font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-mid); margin-top: 2px; font-style: normal;
+  }
+  .event-badge {
+    font-size: 9px; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 4px 10px;
+    border-radius: 2px; white-space: nowrap;
+  }
+  .badge-golf { background: rgba(44,74,46,0.1); color: var(--green-deep); }
+  .badge-night { background: rgba(196,151,58,0.15); color: #9A6E1A; }
+  .badge-dinner { background: rgba(180,60,60,0.1); color: #8B2A2A; }
+  .badge-compete { background: var(--green-deep); color: var(--gold-pale); }
+
+  /* ── TOURNAMENT ── */
+  .tournament-section { background: var(--green-dark); padding: 100px 24px; }
+  .tournament-section .section-title { color: var(--cream); }
+  .tournament-section .section-label { color: var(--gold-light); }
+  .tournament-section .section-label::after { background: var(--gold-light); }
+
+  .format-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 60px; max-width: 1000px; margin-left: auto; margin-right: auto;
+  }
+  .format-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(196,151,58,0.12);
+    padding: 40px 32px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .format-card:hover {
+    background: rgba(196,151,58,0.06);
+    border-color: rgba(196,151,58,0.3);
+  }
+  .format-day-label {
+    font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 16px;
+  }
+  .format-round {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 300; color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .format-type {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-style: italic; color: var(--gold-light);
+    margin-bottom: 20px;
+  }
+  .format-desc {
+    font-size: 13px; line-height: 1.65; color: rgba(242,235,217,0.5);
+  }
+  .format-pts {
+    margin-top: 20px; padding-top: 20px;
+    border-top: 1px solid rgba(196,151,58,0.15);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    color: var(--gold); text-transform: uppercase;
+  }
+
+  /* Points summary */
+  .points-summary {
+    max-width: 1000px; margin: 40px auto 0;
+    background: rgba(196,151,58,0.08);
+    border: 1px solid rgba(196,151,58,0.2);
+    padding: 32px 40px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  .pts-item { text-align: center; }
+  .pts-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 300; color: var(--gold-pale);
+  }
+  .pts-label {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(242,235,217,0.45); margin-top: 6px;
+  }
+
+  /* ── TEAMS ── */
+  .teams-section { background: var(--cream-light); }
+  .teams-intro {
+    max-width: 600px; margin: 0 auto 60px;
+    text-align: center;
+  }
+  .teams-intro .section-label { justify-content: center; }
+  .teams-intro .section-label::before {
+    content: ''; flex: 1; max-width: 60px; height: 1px;
+    background: var(--gold); opacity: 0.4;
+  }
+  .teams-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; max-width: 900px; margin: 0 auto;
+  }
+  .team-card {
+    padding: 48px 40px;
+    display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .team-card.team-a {
+    background: var(--green-deep);
+  }
+  .team-card.team-b {
+    background: var(--green-mid);
+  }
+  .team-badge-large {
+    font-size: 48px; margin-bottom: 20px;
+  }
+  .team-label {
+    font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 12px;
+  }
+  .team-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300; color: var(--cream);
+    margin-bottom: 24px; line-height: 1;
+  }
+  .team-roster {
+    list-style: none; width: 100%;
+  }
+  .team-roster li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(242,235,217,0.1);
+    font-size: 14px; color: rgba(242,235,217,0.65);
+    display: flex; align-items: center; gap: 10px;
+    letter-spacing: 0.02em;
+  }
+  .team-roster li::before {
+    content: '—'; color: var(--gold); opacity: 0.5; font-size: 10px;
+  }
+  .team-roster li:last-child { border-bottom: none; }
+  .roster-note {
+    font-size: 12px; color: rgba(242,235,217,0.35);
+    margin-top: 20px; font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* vs divider */
+  .vs-divider {
+    grid-column: 1 / -1;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--cream-light); padding: 0;
+    position: relative;
+  }
+  /* We'll put VS between the two cards differently */
+
+  /* ── COSTS ── */
+  .costs-section { background: var(--white); }
+  .costs-table {
+    max-width: 700px; margin: 60px auto 0;
+    border: 1px solid rgba(44,58,46,0.1);
+  }
+  .costs-table table {
+    width: 100%; border-collapse: collapse;
+  }
+  .costs-table thead tr {
+    background: var(--green-deep);
+  }
+  .costs-table thead th {
+    padding: 16px 24px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold-pale);
+    text-align: left;
+  }
+  .costs-table thead th:not(:first-child) { text-align: right; }
+  .costs-table tbody tr {
+    border-bottom: 1px solid rgba(44,58,46,0.07);
+    transition: background 0.15s;
+  }
+  .costs-table tbody tr:hover { background: rgba(44,74,46,0.03); }
+  .costs-table tbody td {
+    padding: 18px 24px;
+    font-size: 14px; color: var(--text-dark);
+  }
+  .costs-table tbody td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums;
+  }
+  .costs-table tbody td:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--green-deep);
+  }
+  .costs-table tfoot tr { background: rgba(196,151,58,0.08); }
+  .costs-table tfoot td {
+    padding: 18px 24px;
+    font-weight: 600; font-size: 14px; color: var(--green-deep);
+  }
+  .costs-table tfoot td:not(:first-child) { text-align: right; }
+  .costs-table tfoot td.grand-total {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: var(--gold);
+  }
+  .costs-note {
+    max-width: 700px; margin: 24px auto 0;
+    font-size: 12px; color: var(--text-mid);
+    line-height: 1.6;
+    padding: 0 4px;
+  }
+
+  /* Payment card */
+  .payment-card {
+    max-width: 700px; margin: 40px auto 0;
+    background: var(--green-deep);
+    padding: 40px; display: grid; grid-template-columns: 1fr auto;
+    gap: 32px; align-items: start;
+  }
+  .payment-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 300; color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .payment-details { font-size: 13px; color: rgba(242,235,217,0.6); line-height: 1.7; }
+  .payment-details strong { color: var(--gold-pale); }
+  .payment-venmo {
+    background: rgba(196,151,58,0.15);
+    border: 1px solid rgba(196,151,58,0.3);
+    padding: 20px 28px; text-align: center;
+    min-width: 160px;
+  }
+  .venmo-label {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 8px;
+  }
+  .venmo-handle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: var(--cream);
+  }
+
+  /* ── LOGISTICS ── */
+  .logistics-section { background: var(--cream-light); }
+  .logistics-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; max-width: 1000px; margin: 60px auto 0;
+  }
+  .logistics-card {
+    background: var(--white); padding: 36px 32px;
+    border: 1px solid rgba(44,58,46,0.08);
+    transition: border-color 0.2s;
+  }
+  .logistics-card:hover { border-color: rgba(196,151,58,0.4); }
+  .logistics-icon { font-size: 28px; margin-bottom: 16px; }
+  .logistics-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400; color: var(--green-deep);
+    margin-bottom: 12px;
+  }
+  .logistics-body {
+    font-size: 13px; line-height: 1.7; color: var(--text-mid);
+  }
+  .logistics-body strong { color: var(--green-deep); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-dark);
+    padding: 60px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(196,151,58,0.15);
+  }
+  .footer-crest {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; letter-spacing: 0.12em;
+    color: var(--gold-pale); text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .footer-sub {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(242,235,217,0.3); font-weight: 500;
+  }
+  footer hr {
+    max-width: 200px; margin: 32px auto;
+    border: none; border-top: 1px solid rgba(196,151,58,0.2);
+  }
+  .footer-note {
+    font-size: 12px; color: rgba(242,235,217,0.25);
+    font-style: italic; font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .format-grid { grid-template-columns: 1fr; }
+    .teams-grid { grid-template-columns: 1fr; }
+    .logistics-grid { grid-template-columns: 1fr; }
+    .day-block { grid-template-columns: 80px 1fr; }
+    .event-row { grid-template-columns: 80px 1fr; }
+    .event-badge { display: none; }
+    .points-summary { grid-template-columns: 1fr; gap: 20px; }
+    .payment-card { grid-template-columns: 1fr; }
+    .hero-meta { flex-wrap: wrap; justify-content: center; gap: 24px; }
+    .hero-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">The Chandra Cup</div>
+  <div class="nav-links">
+    <a href="#scoreboard">Scoreboard</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#tournament">Tournament</a>
+    <a href="#teams">Teams</a>
+    <a href="#costs">Costs</a>
+    <a href="#logistics">Logistics</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">2nd Annual Edition</div>
+  <div class="hero-crest">
+    <div class="crest-ring">
+      <img class="crest-inner" src="https://bpheadlesst560.wpenginepowered.com/wp-content/uploads/2026/01/CCF_CourseIcon_Colour.png" alt="Cabot Citrus Farms">
+    </div>
+  </div>
+  <h1 class="hero-title">The <em>Chandra</em> Cup</h1>
+  <p class="hero-subtitle">Cabot Citrus Farms · Brooksville, Florida</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Dates</span>
+      <span class="hero-meta-value">Nov 12–15, 2026</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Competitors</span>
+      <span class="hero-meta-value">8 Golfers</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Rounds</span>
+      <span class="hero-meta-value">4 Courses</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Format</span>
+      <span class="hero-meta-value">Ryder Cup Style</span>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="about-grid container">
+    <div>
+      <div class="section-label">The Venue</div>
+      <h2 class="section-title">Cabot<br><em>Citrus Farms</em></h2>
+      <p class="section-body">
+        Set across 1,200 acres of Florida's Nature Coast, Cabot Citrus Farms is home to four world-class courses carved through towering sand pines, palmetto trees, and centuries-old moss-covered oaks. Four courses. Four days. One trophy.
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box">
+        <div class="stat-number">4<span class="stat-unit">courses</span></div>
+        <div class="stat-label">On Property</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">1200<span class="stat-unit">ac</span></div>
+        <div class="stat-label">Florida Nature Coast</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">57<span class="stat-unit">th</span></div>
+        <div class="stat-label">Karoo, Top 100 US</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">3<span class="stat-unit">rd</span></div>
+        <div class="stat-label">Roost, Best New 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section" id="schedule">
+  <div class="container">
+    <div class="section-label">The Weekend</div>
+    <h2 class="section-title">Full <em>Schedule</em></h2>
+    <div class="schedule-grid">
+
+      <!-- Thursday -->
+      <div class="day-block">
+        <div class="day-date">
+          <div class="day-name">Thursday</div>
+          <div class="day-num">13</div>
+          <div class="day-month">November</div>
+        </div>
+        <div class="day-events">
+          <div class="event-row">
+            <div class="event-time">1:20 / 1:30 PM</div>
+            <div class="event-name">The Roost
+              <small>Arrival round — 18 holes, own ball</small>
+            </div>
+            <div class="event-badge badge-golf">Golf</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">Evening</div>
+            <div class="event-name">Dinner
+              <small>On property</small>
+            </div>
+            <div class="event-badge badge-dinner">Dinner</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">7:57 / 8:06 PM</div>
+            <div class="event-name">The Wedge — Night Golf
+              <small>11-hole par-3 under the lights</small>
+            </div>
+            <div class="event-badge badge-night">Night Golf</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Friday -->
+      <div class="day-block" style="margin-top:2px">
+        <div class="day-date">
+          <div class="day-name">Friday</div>
+          <div class="day-num">14</div>
+          <div class="day-month">November</div>
+        </div>
+        <div class="day-events">
+          <div class="event-row">
+            <div class="event-time">9:00 / 9:12 AM</div>
+            <div class="event-name">Karoo
+              <small>Morning round — Championship course</small>
+            </div>
+            <div class="event-badge badge-compete">Competition</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">Midday</div>
+            <div class="event-name">Quick Lunch
+              <small>On property</small>
+            </div>
+            <div class="event-badge badge-dinner">Lunch</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">2:24 / 2:36 PM</div>
+            <div class="event-name">The Squeeze
+              <small>10-hole short course</small>
+            </div>
+            <div class="event-badge badge-compete">Competition</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">Evening</div>
+            <div class="event-name">Dinner</div>
+            <div class="event-badge badge-dinner">Dinner</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">7:48 / 7:57 PM</div>
+            <div class="event-name">The Wedge — Night Golf
+              <small>11-hole par-3 under the lights</small>
+            </div>
+            <div class="event-badge badge-night">Night Golf</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saturday -->
+      <div class="day-block" style="margin-top:2px">
+        <div class="day-date">
+          <div class="day-name">Saturday</div>
+          <div class="day-num">15</div>
+          <div class="day-month">November</div>
+        </div>
+        <div class="day-events">
+          <div class="event-row">
+            <div class="event-time">9:00 / 9:12 AM</div>
+            <div class="event-name">The Roost
+              <small>Morning round — Championship course</small>
+            </div>
+            <div class="event-badge badge-compete">Competition</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">Midday</div>
+            <div class="event-name">Quick Lunch</div>
+            <div class="event-badge badge-dinner">Lunch</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">2:33 / 2:42 PM</div>
+            <div class="event-name">The Wedge
+              <small>Afternoon par-3 round</small>
+            </div>
+            <div class="event-badge badge-compete">Competition</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">Evening</div>
+            <div class="event-name">Dinner in Tampa
+              <small>Night out on the town</small>
+            </div>
+            <div class="event-badge badge-dinner">Dinner</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sunday -->
+      <div class="day-block" style="margin-top:2px">
+        <div class="day-date">
+          <div class="day-name">Sunday</div>
+          <div class="day-num">16</div>
+          <div class="day-month">November</div>
+        </div>
+        <div class="day-events">
+          <div class="event-row">
+            <div class="event-time">8:48 / 9:00 AM</div>
+            <div class="event-name">Karoo
+              <small>Final round — Singles shootout</small>
+            </div>
+            <div class="event-badge badge-compete">Competition</div>
+          </div>
+          <div class="event-row">
+            <div class="event-time">Post-Round</div>
+            <div class="event-name">Closing Ceremony &amp; Departures
+              <small>Champion crowned. Trophy hoisted.</small>
+            </div>
+            <div class="event-badge badge-golf">Ceremony</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOURNAMENT FORMAT -->
+<section class="tournament-section" id="tournament">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold-light);">The Competition</div>
+    <h2 class="section-title" style="color:var(--cream);">Tournament <em style="color:var(--gold-light);">Format</em></h2>
+    <p class="section-body" style="color:rgba(242,235,217,0.55); max-width:600px;">
+      Ryder Cup–style team competition across four competitive rounds. All formats use own ball — every player plays every shot. Two teams of four battle for Chandra Cup glory.
+    </p>
+
+    <div class="format-grid">
+
+      <div class="format-card">
+        <div class="format-day-label">Friday Morning · Karoo</div>
+        <div class="format-round">Round 1</div>
+        <div class="format-type">Four-Ball (Best Ball)</div>
+        <div class="format-desc">
+          Two-man teams play their own ball throughout. The lower score of the pair counts on each hole. Fast, strategic, and forgiving — the perfect opener on Karoo's dramatic layout.
+        </div>
+        <div class="format-pts">2 matches · 2 points available</div>
+      </div>
+
+      <div class="format-card">
+        <div class="format-day-label">Friday Afternoon · The Squeeze</div>
+        <div class="format-round">Round 2</div>
+        <div class="format-type">Four-Ball (Best Ball)</div>
+        <div class="format-desc">
+          Same format, different pairings. The 10-hole Squeeze makes every point count — there's no room to coast. Captains redraw partnerships to shuffle the lineup.
+        </div>
+        <div class="format-pts">2 matches · 2 points available</div>
+      </div>
+
+      <div class="format-card">
+        <div class="format-day-label">Saturday · Roost + Wedge</div>
+        <div class="format-round">Round 3</div>
+        <div class="format-type">Mixed Four-Ball</div>
+        <div class="format-desc">
+          Morning best-ball on the Roost, followed by an afternoon session on the Wedge par-3 course. The Wedge session counts as its own mini-match — par-3 drama is real.
+        </div>
+        <div class="format-pts">4 matches · 4 points available</div>
+      </div>
+
+      <div class="format-card" style="grid-column: 1 / -1; background: rgba(196,151,58,0.07); border-color: rgba(196,151,58,0.25);">
+        <div class="format-day-label" style="color:var(--gold-light);">Sunday Morning · Karoo</div>
+        <div class="format-round">Final Round</div>
+        <div class="format-type">Singles</div>
+        <div class="format-desc">
+          The Ryder Cup's defining session. All eight players compete in individual head-to-head match play. Own ball, one opponent, 18 holes. This is where the Chandra Cup is won and lost. Pairings announced Saturday evening.
+        </div>
+        <div class="format-pts" style="color:var(--gold-light);">8 singles matches · 8 points available · Maximum drama</div>
+      </div>
+
+    </div>
+
+    <div class="points-summary">
+      <div class="pts-item">
+        <div class="pts-val">16</div>
+        <div class="pts-label">Total Points Available</div>
+      </div>
+      <div class="pts-item">
+        <div class="pts-val">8½</div>
+        <div class="pts-label">Points Needed to Win</div>
+      </div>
+      <div class="pts-item">
+        <div class="pts-val">8</div>
+        <div class="pts-label">Points = Tie / Cup Retained</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAMS + LIVE HANDICAPS -->
+<section class="teams-section" id="teams">
+  <div class="container">
+    <div class="teams-intro">
+      <div class="section-label">Eight Players. Live Handicaps.</div>
+      <h2 class="section-title">The <em>Field</em></h2>
+      <p class="section-body" style="margin: 0 auto; text-align:center;">
+        Enter your GHIN credentials below to pull live handicap indexes directly from USGA GHIN. Course handicaps for all four Cabot courses are calculated automatically.
+      </p>
+    </div>
+
+    <!-- GHIN LOGIN PANEL -->
+    <div id="ghin-login-panel" style="max-width:520px;margin:48px auto 0;">
+      <div style="background:var(--green-deep);padding:40px;">
+        <div style="font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px;">GHIN Authentication</div>
+        <p style="font-size:13px;color:rgba(242,235,217,0.55);line-height:1.65;margin-bottom:28px;">
+          Sign in with any player's GHIN credentials to fetch live handicap indexes for the full field. Credentials are used only to generate a session token and are never stored.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
+          <input id="ghin-email" type="text" placeholder="Email or GHIN number"
+            style="background:rgba(255,255,255,0.07);border:1px solid rgba(196,151,58,0.25);color:var(--cream);
+                   padding:12px 16px;font-size:14px;font-family:Inter,sans-serif;outline:none;
+                   transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='rgba(196,151,58,0.6)'"
+            onblur="this.style.borderColor='rgba(196,151,58,0.25)'">
+          <input id="ghin-password" type="password" placeholder="Password"
+            style="background:rgba(255,255,255,0.07);border:1px solid rgba(196,151,58,0.25);color:var(--cream);
+                   padding:12px 16px;font-size:14px;font-family:Inter,sans-serif;outline:none;
+                   transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='rgba(196,151,58,0.6)'"
+            onblur="this.style.borderColor='rgba(196,151,58,0.25)'">
+        </div>
+        <button id="ghin-login-btn" onclick="ghinLogin()"
+          style="width:100%;background:var(--gold);color:var(--green-dark);
+                 border:none;padding:14px;font-size:11px;font-weight:700;
+                 letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;
+                 font-family:Inter,sans-serif;transition:background 0.2s;">
+          Connect to GHIN
+        </button>
+        <div id="ghin-login-error" style="display:none;margin-top:12px;font-size:12px;color:#e07070;text-align:center;"></div>
+        <pre id="ghin-debug" style="display:none;margin-top:16px;background:rgba(0,0,0,0.3);color:#a0c8a0;
+             font-size:10px;padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-all;
+             border:1px solid rgba(196,151,58,0.15);max-height:140px;"></pre>
+      </div>
+    </div>
+
+    <!-- GHIN NUMBER ENTRY (shown after login) -->
+    <div id="ghin-entry-panel" style="display:none;max-width:860px;margin:48px auto 0;">
+      <div style="background:var(--green-deep);padding:32px 40px;margin-bottom:2px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+          <div>
+            <div style="font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;">Connected to GHIN</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--cream);">Add players to the field</div>
+          </div>
+          <button onclick="ghinLogout()"
+            style="background:transparent;border:1px solid rgba(196,151,58,0.3);color:rgba(242,235,217,0.5);
+                   padding:8px 16px;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;
+                   cursor:pointer;font-family:Inter,sans-serif;">
+            Disconnect
+          </button>
+        </div>
+      </div>
+      <div style="background:white;padding:32px 40px;border:1px solid rgba(44,58,46,0.08);">
+        <div style="display:flex;gap:12px;margin-bottom:8px;">
+          <input id="ghin-number-input" type="text" placeholder="Enter GHIN number (e.g. 1234567)"
+            style="flex:1;background:var(--cream-light);border:1px solid rgba(44,58,46,0.15);color:var(--text-dark);
+                   padding:12px 16px;font-size:14px;font-family:Inter,sans-serif;outline:none;
+                   transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='rgba(44,74,46,0.5)'"
+            onblur="this.style.borderColor='rgba(44,58,46,0.15)'"
+            onkeydown="if(event.key==='Enter') addPlayer()">
+          <button onclick="addPlayer()"
+            style="background:var(--green-deep);color:var(--gold-pale);border:none;
+                   padding:12px 24px;font-size:11px;font-weight:600;letter-spacing:0.15em;
+                   text-transform:uppercase;cursor:pointer;font-family:Inter,sans-serif;
+                   white-space:nowrap;transition:background 0.2s;">
+            + Add Player
+          </button>
+        </div>
+        <div id="ghin-add-error" style="display:none;font-size:12px;color:#c0392b;margin-top:6px;"></div>
+        <div id="ghin-add-loading" style="display:none;font-size:12px;color:var(--text-mid);margin-top:6px;letter-spacing:0.05em;">
+          Fetching from GHIN…
+        </div>
+      </div>
+
+      <!-- FIELD TABLE -->
+      <div id="field-table-wrap" style="display:none;margin-top:2px;">
+        <table style="width:100%;border-collapse:collapse;background:white;">
+          <thead>
+            <tr style="background:var(--green-deep);">
+              <th style="padding:14px 24px;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-pale);text-align:left;">Player</th>
+              <th style="padding:14px 16px;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">HCP Index</th>
+              <th style="padding:14px 16px;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">Karoo</th>
+              <th style="padding:14px 16px;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">Roost</th>
+              <th style="padding:14px 16px;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">Squeeze</th>
+              <th style="padding:14px 16px;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">Wedge</th>
+              <th style="padding:14px 16px;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-pale);text-align:center;"></th>
+            </tr>
+          </thead>
+          <tbody id="field-tbody"></tbody>
+        </table>
+        <div style="background:rgba(44,58,46,0.04);border:1px solid rgba(44,58,46,0.08);padding:14px 24px;
+                    font-size:11px;color:var(--text-mid);line-height:1.6;">
+          Course handicaps use estimated slope/rating: Karoo (CR 73.8 / S 137), Roost (CR 72.9 / S 131), Squeeze (CR 36.2 / S 122, 10 holes), Wedge (CR 38.5 / S 110, 11 holes). Formula: HCP Index × (Slope ÷ 113) × (holes ÷ 18).
+        </div>
+      </div>
+
+      <div id="field-empty" style="padding:32px;text-align:center;background:rgba(44,58,46,0.03);
+           border:1px dashed rgba(44,58,46,0.15);margin-top:2px;
+           font-family:'Cormorant Garamond',serif;font-size:18px;
+           color:var(--text-mid);font-style:italic;">
+        No players added yet — enter a GHIN number above
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // ── State ──────────────────────────────────────────────────────────────────
+  let ghinToken = null;
+  const players = []; // { ghin, name, index }
+
+  // Course data for handicap calculation
+  const courses = {
+    karoo:   { cr: 73.8, slope: 137, holes: 18, par: 72 },
+    roost:   { cr: 72.9, slope: 131, holes: 18, par: 72 },
+    squeeze: { cr: 36.2, slope: 122, holes: 10, par: 36 },
+    wedge:   { cr: 38.5, slope: 110, holes: 11, par: 33 },
+  };
+
+  function courseHcp(index, course) {
+    const raw = index * (course.slope / 113) * (course.holes / 18);
+    return Math.round(raw);
+  }
+
+  // ── GHIN Login via Anthropic API proxy ─────────────────────────────────────
+  async function ghinLogin() {
+    const email = document.getElementById('ghin-email').value.trim();
+    const pass  = document.getElementById('ghin-password').value.trim();
+    if (!email || !pass) { showLoginError('Please enter your GHIN email and password.'); return; }
+
+    const btn = document.getElementById('ghin-login-btn');
+    btn.textContent = 'Connecting…';
+    btn.disabled = true;
+    document.getElementById('ghin-login-error').style.display = 'none';
+
+    try {
+      const data = await ghinFetch('/golfer_login.json', {
+        method: 'POST',
+        body: JSON.stringify({ user: { email_or_ghin: email, password: pass, remember_me: 'true' }, token: '123' })
+      });
+      const result = data.golfer_user
+        ? { token: data.golfer_user.golfer_user_token }
+        : { error: 'Invalid credentials. Please check your GHIN email/GHIN number and password.' };
+      if (result.error) { showLoginError(result.error); }
+      else {
+        ghinToken = result.token;
+        document.getElementById('ghin-login-panel').style.display = 'none';
+        document.getElementById('ghin-entry-panel').style.display  = 'block';
+      }
+    } catch(e) {
+      showLoginError('Connection failed. Please try again.');
+    } finally {
+      btn.textContent = 'Connect to GHIN';
+      btn.disabled = false;
+    }
+  }
+
+  function ghinLogout() {
+    ghinToken = null;
+    document.getElementById('ghin-login-panel').style.display = 'block';
+    document.getElementById('ghin-entry-panel').style.display  = 'none';
+    document.getElementById('ghin-email').value = '';
+    document.getElementById('ghin-password').value = '';
+  }
+
+  // ── Add Player ─────────────────────────────────────────────────────────────
+  async function addPlayer() {
+    const input = document.getElementById('ghin-number-input');
+    const ghin  = input.value.trim().replace(/\D/g,'');
+    if (!ghin) { showAddError('Please enter a GHIN number.'); return; }
+    if (players.find(p => p.ghin === ghin)) { showAddError('That GHIN number is already in the field.'); return; }
+    if (players.length >= 8) { showAddError('Field is full — 8 players maximum.'); return; }
+
+    document.getElementById('ghin-add-error').style.display   = 'none';
+    document.getElementById('ghin-add-loading').style.display = 'block';
+    input.disabled = true;
+
+    try {
+      const data = await ghinFetch(
+        '/golfers/search.json?per_page=1&page=1&golfer_id=' + ghin + '&sorting_criteria=id&order=ASC&status=Active',
+        { headers: { 'Authorization': 'Bearer ' + ghinToken } }
+      );
+      const golfer = data.golfers && data.golfers[0];
+      const result = golfer
+        ? { name: golfer.player_name || (golfer.first_name + ' ' + golfer.last_name), handicap_index: parseFloat(golfer.handicap_index) }
+        : { error: 'No golfer found with GHIN number ' + ghin + '. Please check and try again.' };
+      if (result.error) {
+        showAddError(result.error);
+      } else {
+        players.push({ ghin, name: result.name, index: result.handicap_index });
+        input.value = '';
+        renderField();
+      }
+    } catch(e) {
+      showAddError('Lookup failed. Check the GHIN number and try again.');
+    } finally {
+      document.getElementById('ghin-add-loading').style.display = 'none';
+      input.disabled = false;
+      input.focus();
+    }
+  }
+
+  function removePlayer(ghin) {
+    const idx = players.findIndex(p => p.ghin === ghin);
+    if (idx > -1) players.splice(idx, 1);
+    renderField();
+  }
+
+  // ── Render field table ─────────────────────────────────────────────────────
+  function renderField() {
+    const tbody = document.getElementById('field-tbody');
+    const wrap  = document.getElementById('field-table-wrap');
+    const empty = document.getElementById('field-empty');
+
+    if (players.length === 0) {
+      wrap.style.display  = 'none';
+      empty.style.display = 'block';
+      return;
+    }
+
+    wrap.style.display  = 'block';
+    empty.style.display = 'none';
+
+    // Sort by handicap index ascending
+    const sorted = [...players].sort((a,b) => a.index - b.index);
+
+    tbody.innerHTML = sorted.map((p, i) => {
+      const hcps = {
+        karoo:   courseHcp(p.index, courses.karoo),
+        roost:   courseHcp(p.index, courses.roost),
+        squeeze: courseHcp(p.index, courses.squeeze),
+        wedge:   courseHcp(p.index, courses.wedge),
+      };
+      const rowBg = i % 2 === 0 ? '#fff' : 'rgba(44,58,46,0.025)';
+      return `
+        <tr style="background:${rowBg};border-bottom:1px solid rgba(44,58,46,0.07);">
+          <td style="padding:16px 24px;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--green-deep);">${escHtml(p.name)}</div>
+            <div style="font-size:11px;color:var(--text-mid);margin-top:2px;letter-spacing:0.04em;">GHIN ${p.ghin}</div>
+          </td>
+          <td style="padding:16px;text-align:center;">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold);font-weight:400;">${p.index}</span>
+          </td>
+          <td style="padding:16px;text-align:center;font-size:16px;font-variant-numeric:tabular-nums;color:var(--text-dark);">${hcps.karoo}</td>
+          <td style="padding:16px;text-align:center;font-size:16px;font-variant-numeric:tabular-nums;color:var(--text-dark);">${hcps.roost}</td>
+          <td style="padding:16px;text-align:center;font-size:16px;font-variant-numeric:tabular-nums;color:var(--text-dark);">${hcps.squeeze}</td>
+          <td style="padding:16px;text-align:center;font-size:16px;font-variant-numeric:tabular-nums;color:var(--text-dark);">${hcps.wedge}</td>
+          <td style="padding:16px;text-align:center;">
+            <button onclick="removePlayer('${p.ghin}')"
+              style="background:none;border:1px solid rgba(180,60,60,0.2);color:rgba(180,60,60,0.5);
+                     padding:4px 10px;font-size:11px;cursor:pointer;font-family:Inter,sans-serif;
+                     transition:all 0.15s;"
+              onmouseover="this.style.borderColor='rgba(180,60,60,0.6)';this.style.color='rgba(180,60,60,0.9)'"
+              onmouseout="this.style.borderColor='rgba(180,60,60,0.2)';this.style.color='rgba(180,60,60,0.5)'">
+              Remove
+            </button>
+          </td>
+        </tr>`;
+    }).join('');
+  }
+
+  // ── GHIN API direct (no CORS proxy needed — api.ghin.com allows all origins) ──
+  const GHIN_BASE = 'https://api.ghin.com/api/v1';
+
+  async function ghinFetch(path, options = {}) {
+    const url = GHIN_BASE + path;
+    const res = await fetch(url, {
+      ...options,
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/json',
+        ...(options.headers || {}),
+      }
+    });
+
+    const rawText = await res.text();
+
+    // Show debug info in the UI
+    const dbg = document.getElementById('ghin-debug');
+    if (dbg) {
+      dbg.style.display = 'block';
+      dbg.textContent = 'Status: ' + res.status + '\n' +
+        'URL: ' + url + '\n' +
+        'Response: ' + rawText.slice(0, 400);
+    }
+
+    if (!res.ok) throw new Error('HTTP ' + res.status + ': ' + rawText.slice(0, 200));
+
+    return JSON.parse(rawText);
+  }
+
+  // ── Helpers ────────────────────────────────────────────────────────────────
+  function showLoginError(msg) {
+    const el = document.getElementById('ghin-login-error');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+  function showAddError(msg) {
+    const el = document.getElementById('ghin-add-error');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+</script>
+
+
+<!-- SCOREBOARD -->
+<section style="background:var(--green-dark);padding:100px 24px;" id="scoreboard">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold-light);">Live · 2026</div>
+    <h2 class="section-title" style="color:var(--cream);">Chandra Cup <em style="color:var(--gold-light);">Scoreboard</em></h2>
+    <p class="section-body" style="color:rgba(242,235,217,0.55);max-width:640px;margin-bottom:48px;">
+      Real-time match results, standings, and payout tracker. $150 buy-in · $30 per match won.
+    </p>
+
+    <!-- TEAM BANNER -->
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;max-width:860px;margin:0 auto 32px;border:1px solid rgba(196,151,58,0.2);">
+      <div id="banner-a" style="background:rgba(44,74,46,0.3);padding:28px 32px;">
+        <div style="font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;">Team A · The Palms</div>
+        <div id="pts-a" style="font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:var(--cream);line-height:1;">0</div>
+        <div style="font-size:11px;color:rgba(242,235,217,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-top:4px;">Points</div>
+      </div>
+      <div style="background:rgba(196,151,58,0.08);padding:24px;text-align:center;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(196,151,58,0.15);border-right:1px solid rgba(196,151,58,0.15);min-width:100px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold-pale);font-style:italic;">vs</div>
+        <div id="status-lbl" style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(242,235,217,0.3);margin-top:8px;">Not Started</div>
+      </div>
+      <div id="banner-b" style="background:rgba(44,74,46,0.3);padding:28px 32px;text-align:right;">
+        <div style="font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;">Team B · The Pines</div>
+        <div id="pts-b" style="font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:var(--cream);line-height:1;">0</div>
+        <div style="font-size:11px;color:rgba(242,235,217,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-top:4px;">Points</div>
+      </div>
+    </div>
+
+    <!-- PAYOUT STRIP -->
+    <div style="max-width:860px;margin:0 auto 32px;background:rgba(196,151,58,0.07);border:1px solid rgba(196,151,58,0.18);padding:22px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center;">
+      <div>
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Prize Pool</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold-pale);">$1,200</div>
+      </div>
+      <div>
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Team A Earned</div>
+        <div id="pay-a" style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--cream);">$0</div>
+      </div>
+      <div>
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">Team B Earned</div>
+        <div id="pay-b" style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--cream);">$0</div>
+      </div>
+      <div>
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;">In Play</div>
+        <div id="pay-rem" style="font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(242,235,217,0.4);">$1,200</div>
+      </div>
+    </div>
+
+    <!-- EDIT TOGGLE -->
+    <div style="max-width:860px;margin:0 auto 16px;text-align:right;">
+      <button id="edit-btn" onclick="sbToggleEdit()"
+        style="background:rgba(196,151,58,0.15);color:var(--gold-light);border:1px solid rgba(196,151,58,0.3);
+               padding:10px 24px;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+               cursor:pointer;font-family:Inter,sans-serif;">
+        ✏️ Enter Scores
+      </button>
+    </div>
+
+    <!-- MATCH CARDS -->
+    <div id="sb-matches" style="max-width:860px;margin:0 auto;"></div>
+
+    <!-- PLAYER TABLE -->
+    <div style="max-width:860px;margin:32px auto 0;">
+      <div style="font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;">Individual Standings</div>
+      <div id="sb-players"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  // ── DATA ──────────────────────────────────────────────────────────
+  const ROSTER = [
+    { id:'p1', name:'Thomson Riley',   hcp:12.4, team:'A' },
+    { id:'p2', name:'Jack Murphy',     hcp:8.1,  team:'A' },
+    { id:'p3', name:'Will Harrington', hcp:15.3, team:'A' },
+    { id:'p4', name:'Owen Callahan',   hcp:6.7,  team:'A' },
+    { id:'p5', name:'Murph',           hcp:9.2,  team:'B' },
+    { id:'p6', name:'Finn Donahue',    hcp:18.0, team:'B' },
+    { id:'p7', name:'Declan Shaw',     hcp:11.5, team:'B' },
+    { id:'p8', name:'Liam Connelly',   hcp:4.3,  team:'B' },
+  ];
+
+  const COURSES = {
+    'Karoo':       { cr:73.8, slope:137, holes:18 },
+    'The Squeeze': { cr:36.2, slope:122, holes:10 },
+    'Roost':       { cr:72.9, slope:131, holes:18 },
+    'The Wedge':   { cr:38.5, slope:110, holes:11 },
+  };
+
+  const MATCHES = [
+    { id:'m1',  label:'Round 1 · Match 1', course:'Karoo',       day:'Friday AM',    format:'Four-Ball', A:['p1','p2'], B:['p5','p6'] },
+    { id:'m2',  label:'Round 1 · Match 2', course:'Karoo',       day:'Friday AM',    format:'Four-Ball', A:['p3','p4'], B:['p7','p8'] },
+    { id:'m3',  label:'Round 2 · Match 1', course:'The Squeeze', day:'Friday PM',    format:'Four-Ball', A:['p1','p3'], B:['p5','p7'] },
+    { id:'m4',  label:'Round 2 · Match 2', course:'The Squeeze', day:'Friday PM',    format:'Four-Ball', A:['p2','p4'], B:['p6','p8'] },
+    { id:'m5',  label:'Round 3 · Match 1', course:'Roost',       day:'Saturday AM',  format:'Four-Ball', A:['p1','p4'], B:['p6','p7'] },
+    { id:'m6',  label:'Round 3 · Match 2', course:'Roost',       day:'Saturday AM',  format:'Four-Ball', A:['p2','p3'], B:['p5','p8'] },
+    { id:'m7',  label:'Round 4 · Match 1', course:'The Wedge',   day:'Saturday PM',  format:'Four-Ball', A:['p1','p2'], B:['p7','p8'] },
+    { id:'m8',  label:'Round 4 · Match 2', course:'The Wedge',   day:'Saturday PM',  format:'Four-Ball', A:['p3','p4'], B:['p5','p6'] },
+    { id:'m9',  label:'Singles · 1',       course:'Karoo',       day:'Sunday',       format:'Singles',   A:['p1'],      B:['p5'] },
+    { id:'m10', label:'Singles · 2',       course:'Karoo',       day:'Sunday',       format:'Singles',   A:['p2'],      B:['p6'] },
+    { id:'m11', label:'Singles · 3',       course:'Karoo',       day:'Sunday',       format:'Singles',   A:['p3'],      B:['p7'] },
+    { id:'m12', label:'Singles · 4',       course:'Karoo',       day:'Sunday',       format:'Singles',   A:['p4'],      B:['p8'] },
+  ];
+
+  let scores = {};
+  let editMode = false;
+
+  function load() {
+    try { scores = JSON.parse(localStorage.getItem('cc26') || '{}'); } catch(e) { scores = {}; }
+  }
+  function save() {
+    try { localStorage.setItem('cc26', JSON.stringify(scores)); } catch(e) {}
+  }
+
+  function p(id) { return ROSTER.find(r => r.id === id); }
+  function fn(ids) { return ids.map(id => p(id).name.split(' ')[0]).join(' & '); }
+  function chcp(hcp, course) {
+    const c = COURSES[course];
+    return c ? Math.round(hcp * (c.slope/113) * (c.holes/18)) : Math.round(hcp);
+  }
+  function result(mid) { return scores[mid] || null; }
+
+  function setResult(mid, val) {
+    if (val === null) delete scores[mid]; else scores[mid] = val;
+    save();
+    render();
+  }
+
+  window.sbToggleEdit = function() {
+    editMode = !editMode;
+    render();
+  };
+  window.sbSetResult = setResult;
+
+  function teamPts() {
+    let a = 0, b = 0;
+    MATCHES.forEach(m => {
+      const r = result(m.id);
+      if (r === 'A') a += 1;
+      else if (r === 'B') b += 1;
+      else if (r === 'halved') { a += 0.5; b += 0.5; }
+    });
+    return { a, b };
+  }
+
+  function playerStats() {
+    const s = {};
+    ROSTER.forEach(r => s[r.id] = { w:0, h:0, l:0, played:0 });
+    MATCHES.forEach(m => {
+      const r = result(m.id);
+      if (!r) return;
+      [...m.A, ...m.B].forEach(pid => {
+        s[pid].played++;
+        const onA = m.A.includes(pid);
+        if (r === 'A')      { onA ? s[pid].w++ : s[pid].l++; }
+        else if (r === 'B') { onA ? s[pid].l++ : s[pid].w++; }
+        else                { s[pid].h++; }
+      });
+    });
+    return s;
+  }
+
+  function fmt(v) { return v % 1 === 0 ? v : v.toFixed(1); }
+
+  function render() {
+    const { a, b } = teamPts();
+    const played = MATCHES.filter(m => result(m.id)).length;
+
+    // Banner
+    document.getElementById('pts-a').textContent = fmt(a);
+    document.getElementById('pts-b').textContent = fmt(b);
+    document.getElementById('banner-a').style.background = a > b ? 'rgba(44,110,46,0.45)' : 'rgba(44,74,46,0.3)';
+    document.getElementById('banner-b').style.background = b > a ? 'rgba(44,110,46,0.45)' : 'rgba(44,74,46,0.3)';
+    document.getElementById('status-lbl').textContent =
+      played === 0 ? 'Not Started' :
+      played === MATCHES.length ? 'Final' :
+      played + ' / ' + MATCHES.length + ' complete';
+
+    // Payouts — $120 per match won (30/player × 4 players on losing side)
+    const aEarned = Math.floor(a) * 120 + (a % 1 ? 60 : 0);
+    const bEarned = Math.floor(b) * 120 + (b % 1 ? 60 : 0);
+    document.getElementById('pay-a').textContent   = '$' + aEarned;
+    document.getElementById('pay-b').textContent   = '$' + bEarned;
+    document.getElementById('pay-rem').textContent = '$' + Math.max(1200 - aEarned - bEarned, 0);
+
+    // Edit button
+    const eb = document.getElementById('edit-btn');
+    eb.textContent = editMode ? '✓ Done Editing' : '✏️ Enter Scores';
+    eb.style.background = editMode ? 'rgba(44,110,46,0.3)' : 'rgba(196,151,58,0.15)';
+    eb.style.color = editMode ? '#8ecf8e' : 'var(--gold-light)';
+
+    // Match cards — group by day
+    const days = [...new Set(MATCHES.map(m => m.day))];
+    let html = '';
+    days.forEach(day => {
+      const dayMs = MATCHES.filter(m => m.day === day);
+      html += `<div style="margin-bottom:3px;">
+        <div style="background:rgba(196,151,58,0.13);border:1px solid rgba(196,151,58,0.22);padding:11px 24px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--cream);">${day}</span>
+          <span style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">${dayMs[0].course} · ${dayMs[0].format}</span>
+        </div>`;
+      dayMs.forEach(m => {
+        const r = result(m.id);
+        const aNames = fn(m.A);
+        const bNames = fn(m.B);
+        const aHcpTxt = m.A.map(id => p(id).name.split(' ')[0] + ' (' + chcp(p(id).hcp, m.course) + ')').join(', ');
+        const bHcpTxt = m.B.map(id => p(id).name.split(' ')[0] + ' (' + chcp(p(id).hcp, m.course) + ')').join(', ');
+
+        let resultCell = '';
+        if (editMode) {
+          resultCell = `<div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
+            <button onclick="sbSetResult('${m.id}','A')"
+              style="background:${r==='A'?'var(--gold)':'rgba(255,255,255,0.07)'};color:${r==='A'?'#1a2a1a':'rgba(242,235,217,0.75)'};
+                     border:1px solid rgba(196,151,58,0.3);padding:5px 14px;font-size:10px;font-weight:700;
+                     cursor:pointer;font-family:Inter,sans-serif;letter-spacing:0.1em;min-width:88px;">A WINS</button>
+            <button onclick="sbSetResult('${m.id}','halved')"
+              style="background:${r==='halved'?'rgba(196,151,58,0.6)':'rgba(255,255,255,0.07)'};color:${r==='halved'?'#1a2a1a':'rgba(242,235,217,0.75)'};
+                     border:1px solid rgba(196,151,58,0.3);padding:5px 14px;font-size:10px;font-weight:700;
+                     cursor:pointer;font-family:Inter,sans-serif;letter-spacing:0.1em;min-width:88px;">HALVED</button>
+            <button onclick="sbSetResult('${m.id}','B')"
+              style="background:${r==='B'?'var(--gold)':'rgba(255,255,255,0.07)'};color:${r==='B'?'#1a2a1a':'rgba(242,235,217,0.75)'};
+                     border:1px solid rgba(196,151,58,0.3);padding:5px 14px;font-size:10px;font-weight:700;
+                     cursor:pointer;font-family:Inter,sans-serif;letter-spacing:0.1em;min-width:88px;">B WINS</button>
+            ${r ? `<button onclick="sbSetResult('${m.id}',null)"
+              style="background:rgba(180,60,60,0.15);color:rgba(220,120,120,0.7);border:1px solid rgba(180,60,60,0.2);
+                     padding:3px 10px;font-size:9px;cursor:pointer;font-family:Inter,sans-serif;margin-top:2px;">clear</button>` : ''}
+          </div>`;
+        } else {
+          const icon  = r === 'halved' ? '½' : r ? '🏆' : '—';
+          const label = r === 'A' ? 'A Wins' : r === 'B' ? 'B Wins' : r === 'halved' ? 'Halved' : 'Pending';
+          const col   = r === 'halved' ? 'var(--gold-light)' : r ? '#7ecf7e' : 'rgba(242,235,217,0.22)';
+          resultCell  = `<div style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:15px;color:${col};font-style:italic;padding:4px 12px;">${icon} ${label}</div>`;
+        }
+
+        html += `<div style="background:rgba(255,255,255,0.025);border:1px solid rgba(196,151,58,0.08);border-top:none;padding:18px 24px;">
+          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;">
+            <div>
+              <div style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Team A</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--cream);">${aNames}</div>
+              <div style="font-size:10px;color:rgba(242,235,217,0.32);margin-top:2px;">${aHcpTxt}</div>
+            </div>
+            <div style="min-width:100px;">${resultCell}</div>
+            <div style="text-align:right;">
+              <div style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Team B</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--cream);">${bNames}</div>
+              <div style="font-size:10px;color:rgba(242,235,217,0.32);margin-top:2px;">${bHcpTxt}</div>
+            </div>
+          </div>
+        </div>`;
+      });
+      html += '</div>';
+    });
+    document.getElementById('sb-matches').innerHTML = html;
+
+    // Player standings
+    const stats = playerStats();
+    const sorted = [...ROSTER].sort((x,y) => {
+      const xp = stats[x.id].w + stats[x.id].h * 0.5;
+      const yp = stats[y.id].w + stats[y.id].h * 0.5;
+      return yp - xp;
+    });
+    let ptbl = `<table style="width:100%;border-collapse:collapse;">
+      <thead><tr style="background:rgba(196,151,58,0.1);">
+        <th style="padding:11px 20px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-pale);text-align:left;">Player</th>
+        <th style="padding:11px 12px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">Team</th>
+        <th style="padding:11px 12px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">HCP</th>
+        <th style="padding:11px 12px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">W</th>
+        <th style="padding:11px 12px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">H</th>
+        <th style="padding:11px 12px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">L</th>
+        <th style="padding:11px 12px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">Pts</th>
+        <th style="padding:11px 12px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-pale);text-align:center;">Earnings</th>
+      </tr></thead><tbody>`;
+    sorted.forEach((pl, i) => {
+      const st = stats[pl.id];
+      const pts = st.w + st.h * 0.5;
+      const earn = st.w * 30 + st.h * 15;
+      const tc = pl.team === 'A' ? '#7ecf7e' : '#d9ae5a';
+      ptbl += `<tr style="border-bottom:1px solid rgba(196,151,58,0.07);${i%2?'background:rgba(255,255,255,0.015)':''}">
+        <td style="padding:13px 20px;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--cream);">${pl.name}</td>
+        <td style="padding:13px 12px;text-align:center;font-size:11px;font-weight:700;color:${tc};">${pl.team}</td>
+        <td style="padding:13px 12px;text-align:center;font-size:13px;color:rgba(242,235,217,0.45);">${pl.hcp}</td>
+        <td style="padding:13px 12px;text-align:center;font-size:16px;color:#7ecf7e;font-weight:600;">${st.w}</td>
+        <td style="padding:13px 12px;text-align:center;font-size:16px;color:var(--gold-light);">${st.h}</td>
+        <td style="padding:13px 12px;text-align:center;font-size:16px;color:rgba(200,90,90,0.8);">${st.l}</td>
+        <td style="padding:13px 12px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold-pale);">${fmt(pts)}</td>
+        <td style="padding:13px 12px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:20px;color:${earn>0?'#7ecf7e':'rgba(242,235,217,0.28)'};">$${earn}</td>
+      </tr>`;
+    });
+    ptbl += '</tbody></table>';
+    document.getElementById('sb-players').innerHTML = ptbl;
+  }
+
+  load();
+  render();
+})();
+</script>
+
+<!-- COSTS -->
+<section class="costs-section" id="costs">
+  <div class="container">
+    <div class="section-label">What It'll Cost You</div>
+    <h2 class="section-title">Greens Fees &amp; <em>Costs</em></h2>
+
+    <div class="costs-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Players</th>
+            <th>Rate / Player</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Karoo <span style="font-size:12px;font-family:Inter;color:#7a9e7e;font-style:italic;">× 2 rounds</span></td>
+            <td>8</td>
+            <td>$350</td>
+            <td>$2,800</td>
+          </tr>
+          <tr>
+            <td>The Roost <span style="font-size:12px;font-family:Inter;color:#7a9e7e;font-style:italic;">× 2 rounds</span></td>
+            <td>8</td>
+            <td>$350</td>
+            <td>$2,800</td>
+          </tr>
+          <tr>
+            <td>The Squeeze</td>
+            <td>8</td>
+            <td>$105</td>
+            <td>$840</td>
+          </tr>
+          <tr>
+            <td>The Wedge <span style="font-size:12px;font-family:Inter;color:#7a9e7e;font-style:italic;">× multiple sessions</span></td>
+            <td>8</td>
+            <td>$70</td>
+            <td>$560</td>
+          </tr>
+          <tr>
+            <td>Lodging (2-bed cottages × 2)</td>
+            <td>8</td>
+            <td>$155 / night</td>
+            <td>$1,240</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Greens Fees Total (per person)</td>
+            <td>$875</td>
+          </tr>
+          <tr>
+            <td colspan="3">Lodging (2 installments of $620)</td>
+            <td>$1,240</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="font-weight:700;">Estimated Total Per Person</td>
+            <td class="grand-total">~$2,115</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <p class="costs-note">
+      * Greens fees paid directly at arrival. Lodging split as two payments of $620 — first due at booking, second due by 10/13. Flights and incidentals not included.
+    </p>
+
+    <div class="payment-card">
+      <div>
+        <div class="payment-title">Secure Your Spot</div>
+        <div class="payment-details">
+          Venmo <strong>$620</strong> to reserve your cottage. A second payment of <strong>$620</strong> is due by <strong>October 13th</strong>. Greens fees are collected on-site at Cabot Citrus Farms.<br><br>
+          Reach out to <strong>Murph</strong> with any questions.
+        </div>
+      </div>
+      <div class="payment-venmo">
+        <div class="venmo-label">Venmo</div>
+        <div class="venmo-handle">@jeff-murphy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGISTICS -->
+<section class="logistics-section" id="logistics">
+  <div class="container">
+    <div class="section-label">Getting There</div>
+    <h2 class="section-title">Travel &amp; <em>Logistics</em></h2>
+
+    <div class="logistics-grid">
+      <div class="logistics-card">
+        <div class="logistics-icon">✈️</div>
+        <div class="logistics-title">Flights</div>
+        <div class="logistics-body">
+          Fly into <strong>Tampa (TPA)</strong>. Murph recommends the <strong>6:05 AM JetBlue out of Logan</strong> for the early arrivals. Book early — this weekend will fill up.
+        </div>
+      </div>
+      <div class="logistics-card">
+        <div class="logistics-icon">🚗</div>
+        <div class="logistics-title">Ground Transport</div>
+        <div class="logistics-body">
+          It's an <strong>approximately one hour drive</strong> from Tampa International to Cabot Citrus Farms in Brooksville, FL. Coordinate carpools with your cottage-mates.
+        </div>
+      </div>
+      <div class="logistics-card">
+        <div class="logistics-icon">🏡</div>
+        <div class="logistics-title">Accommodations</div>
+        <div class="logistics-body">
+          Two <strong>2-bedroom cottages</strong> on property. Steps from the courses, dinner, and the Wedge for those late-night sessions under the lights.
+        </div>
+      </div>
+      <div class="logistics-card">
+        <div class="logistics-icon">📅</div>
+        <div class="logistics-title">Key Dates</div>
+        <div class="logistics-body">
+          <strong>Arrive:</strong> Thursday, November 12<br>
+          <strong>Depart:</strong> Sunday, November 15<br>
+          <strong>Lodging deposit due:</strong> ASAP<br>
+          <strong>2nd payment due:</strong> October 13
+        </div>
+      </div>
+      <div class="logistics-card">
+        <div class="logistics-icon">⛳</div>
+        <div class="logistics-title">Practice Advice</div>
+        <div class="logistics-body">
+          <em>"Start practicing slight-of-hand tricks to gain an inch on all your putts."</em> — Murph. For tips on this technique, you know who to ask.
+        </div>
+      </div>
+      <div class="logistics-card">
+        <div class="logistics-icon">📞</div>
+        <div class="logistics-title">Questions?</div>
+        <div class="logistics-body">
+          Contact <strong>Murph</strong> for all logistics, payment questions, team assignments, and unsolicited putting advice. He's done the hard work — now just show up.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-crest">The Chandra Cup</div>
+  <div class="footer-sub">Cabot Citrus Farms · Brooksville, Florida · November 2026</div>
+  <hr>
+  <div class="footer-note">Fairways and greens, gentlemen.</div>
+</footer>
+
+</body>
+</html>
